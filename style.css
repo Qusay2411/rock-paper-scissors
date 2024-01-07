@@ -1,34 +1,81 @@
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
+html {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 50px;
+  color: black;
+}
 body {
+  background-image: url("background.jpeg");
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+.chosen {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.chosen-player {
+  text-align: right;
+}
+
+.chosen-computer {
+  text-align: left; /* Center the image horizontally within its container */
+}
+
+.chosen-computer,
+.chosen-player {
+  margin: 10px;
+}
+
+.question {
+  max-width: 25%;
+  height: auto;
+  margin-bottom: 50px;
+  margin: 0;
+  padding: 0;
+  color: red;
+}
+
+.options img:hover {
+  opacity: 0.8;
+}
+
 .options {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 5%;
+  flex-wrap: wrap;
 }
 
 button {
   margin: 0 20px 0 20px;
-  width: 100px;
-  height: 50px;
+  width: 350px;
+  height: 200px;
   /* background-color: rgba(255, 255, 255); */
   border-radius: 10px;
   border: none;
-}
-
-button:hover {
-  background-color: grey;
+  box-shadow: none;
 }
 
 .result {
@@ -48,7 +95,54 @@ button:hover {
 }
 
 .winner {
+  display: none;
+  position: absolute;
+  /* border: 2px blue solid; */
+  width: 100%;
+  height: 50%;
+  color: orange;
+  font-size: 150px;
+  text-align: center;
+  /* display: flex; */
+}
+
+.winner-container {
+  height: 75%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.output-restart {
+  font-size: 50px;
+}
+.restart {
+  display: flex;
+}
+
+.restart-yes,
+.restart-no {
+  background-color: blue;
+  font-size: 50px;
+}
+
+.again {
+  font-size: 30px;
+  background-color: red;
+  border-radius: 25px;
+  height: 50px;
+  width: 15%;
+  background: rgb(215, 98, 97);
+  background: linear-gradient(
+    90deg,
+    rgba(215, 98, 97, 1) 0%,
+    rgba(240, 71, 72, 1) 35%,
+    rgba(236, 91, 92, 1) 100%
+  );
+}
+
+.again:hover {
+  opacity: 0.9;
+  background-color: red;
 }

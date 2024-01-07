@@ -4,24 +4,49 @@
     <meta charset="utf-8" />
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Bebas+Neue"
+    />
   </head>
   <body>
-    <div class="options">
-      <button class="options-scissors">SCISSORS</button>
-      <button class="options-paper">PAPER</button>
-      <button class="options-rock">ROCK</button>
+    <h1>ROCK PAPER SCISSORS</h1>
+    <div class="chosen">
+      <div class="chosen-player">
+        <img
+          class="question question-chosen-player"
+          src="images/questionmark.png"
+        />
+      </div>
+      <div class="chosen-computer">
+        <img
+          class="question question-chosen-computer"
+          src="images/questionmark.png"
+        />
+      </div>
     </div>
-    <div class="result">&nbsp</div>
+    <div class="options">
+      <button class="options-scissors">
+        <img src="images/scissors.png" />
+      </button>
+      <button class="options-paper">
+        <img src="images/paper.png" />
+      </button>
+      <button class="options-rock">
+        <img src="images/rock.png" />
+      </button>
+    </div>
     <div class="score">
       <div class="score score-player">Player Score: 0</div>
       <div class="score score-computer">Computer Score: 0</div>
     </div>
-    <div class="winner">&nbsp</div>
-    <!-- <div class="score">
-      <div class="score score-player">Player Score: 0</div>
-      <div class="score score-computer">Computer Score: 0</div>
+    <div class="result">&nbsp</div>
+    <div class="winner">
+      <div class="winner-container">
+        <p class="output">&nbsp</p>
+        <button class="again">PLAY AGAIN</button>
     </div>
-    <div class="winner">No one</div> -->
+
     <script src="index.js"></script>
   </body>
 </html>

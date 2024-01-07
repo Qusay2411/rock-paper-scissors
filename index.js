@@ -36,9 +36,9 @@ function isPlayerWinner(player, computer) {
 }
 
 function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-  // let i = 0;
+  window.addEventListener("load", () => {
+    console.log("The page is fully loaded.");
+  });
 
   const scissors = document.querySelector(".options-scissors");
   const paper = document.querySelector(".options-paper");
@@ -47,10 +47,18 @@ function game() {
   const scorePlayer = document.querySelector(".score-player");
   const scoreComputer = document.querySelector(".score-computer");
   const winner = document.querySelector(".winner");
+  const output = document.querySelector(".output");
+  const chosenPlayer = document.querySelector(".question-chosen-player");
+  const chosenComputer = document.querySelector(".question-chosen-computer");
+  const playAgain = document.querySelector(".again");
 
   scissors.addEventListener("click", (e) => {
     const computerChoice = getComputerChoice();
+    e.target.textContent = "scissors";
     const playerChoice = e.target.textContent;
+
+    chosenPlayer.src = "images/scissors.png";
+    chosenComputer.src = `images/${computerChoice}.png`;
     if (playRound(playerChoice, computerChoice).includes("win")) {
       result.textContent = playRound(playerChoice, computerChoice);
 
@@ -68,15 +76,52 @@ function game() {
     }
 
     if (scoreComputer.textContent.slice(-1) === "5") {
-      winner.textContent = "Computer wins!";
+      setTimeout(() => {
+        document
+          .querySelectorAll("body >*:not(.winner)")
+          .forEach((e) => (e.style.filter = "blur(10px)"));
+        output.textContent = "Computer wins!";
+        winner.style.display = "block";
+        playAgain.addEventListener("click", (e) => {
+          chosenComputer.src = "images/questionmark.png";
+          chosenPlayer.src = "images/questionmark.png";
+          winner.style.display = "none";
+          scoreComputer.textContent =
+            scoreComputer.textContent.slice(0, -1) + "0";
+          scorePlayer.textContent = scorePlayer.textContent.slice(0, -1) + "0";
+          document
+            .querySelectorAll("body >*:not(.winner)")
+            .forEach((e) => (e.style.filter = "blur(0px)"));
+        });
+      }, 200);
     } else if (scorePlayer.textContent.slice(-1) === "5") {
-      winner.textContent = "You win!";
+      setTimeout(() => {
+        document
+          .querySelectorAll("body >*:not(.winner)")
+          .forEach((e) => (e.style.filter = "blur(10px)"));
+        output.textContent = "You win!";
+        winner.style.display = "block";
+        chosenComputer.src = "images/questionmark.png";
+        chosenPlayer.src = "images/questionmark.png";
+        playAgain.addEventListener("click", (e) => {
+          winner.style.display = "none";
+          scorePlayer.textContent = scorePlayer.textContent.slice(0, -1) + "0";
+          scoreComputer.textContent =
+            scoreComputer.textContent.slice(0, -1) + "0";
+          document
+            .querySelectorAll("body >*:not(.winner)")
+            .forEach((e) => (e.style.filter = "blur(0px)"));
+        });
+      }, 200);
     }
   });
 
   paper.addEventListener("click", (e) => {
     const computerChoice = getComputerChoice();
+    e.target.textContent = "paper";
     const playerChoice = e.target.textContent;
+    chosenPlayer.src = "images/paper.png";
+    chosenComputer.src = `images/${computerChoice}.png`;
     if (playRound(playerChoice, computerChoice).includes("win")) {
       result.textContent = playRound(playerChoice, computerChoice);
 
@@ -94,15 +139,52 @@ function game() {
     }
 
     if (scoreComputer.textContent.slice(-1) === "5") {
-      winner.textContent = "Computer wins!";
+      setTimeout(() => {
+        document
+          .querySelectorAll("body >*:not(.winner)")
+          .forEach((e) => (e.style.filter = "blur(10px)"));
+        output.textContent = "Computer wins!";
+        winner.style.display = "block";
+        playAgain.addEventListener("click", (e) => {
+          chosenComputer.src = "images/questionmark.png";
+          chosenPlayer.src = "images/questionmark.png";
+          winner.style.display = "none";
+          scoreComputer.textContent =
+            scoreComputer.textContent.slice(0, -1) + "0";
+          scorePlayer.textContent = scorePlayer.textContent.slice(0, -1) + "0";
+          document
+            .querySelectorAll("body >*:not(.winner)")
+            .forEach((e) => (e.style.filter = "blur(0px)"));
+        });
+      }, 200);
     } else if (scorePlayer.textContent.slice(-1) === "5") {
-      winner.textContent = "You win!";
+      setTimeout(() => {
+        document
+          .querySelectorAll("body >*:not(.winner)")
+          .forEach((e) => (e.style.filter = "blur(10px)"));
+        output.textContent = "You win!";
+        winner.style.display = "block";
+        chosenComputer.src = "images/questionmark.png";
+        chosenPlayer.src = "images/questionmark.png";
+        playAgain.addEventListener("click", (e) => {
+          winner.style.display = "none";
+          scorePlayer.textContent = scorePlayer.textContent.slice(0, -1) + "0";
+          scoreComputer.textContent =
+            scoreComputer.textContent.slice(0, -1) + "0";
+          document
+            .querySelectorAll("body >*:not(.winner)")
+            .forEach((e) => (e.style.filter = "blur(0px)"));
+        });
+      }, 200);
     }
   });
 
   rock.addEventListener("click", (e) => {
     const computerChoice = getComputerChoice();
+    e.target.textContent = "rock";
     const playerChoice = e.target.textContent;
+    chosenPlayer.src = "images/rock.png";
+    chosenComputer.src = `images/${computerChoice}.png`;
     if (playRound(playerChoice, computerChoice).includes("win")) {
       result.textContent = playRound(playerChoice, computerChoice);
 
@@ -120,45 +202,49 @@ function game() {
     }
 
     if (scoreComputer.textContent.slice(-1) === "5") {
-      winner.textContent = "Computer wins!";
+      setTimeout(() => {
+        document
+          .querySelectorAll("body >*:not(.winner)")
+          .forEach((e) => (e.style.filter = "blur(10px)"));
+        output.textContent = "Computer wins!";
+        winner.style.display = "block";
+        playAgain.addEventListener("click", (e) => {
+          chosenComputer.src = "images/questionmark.png";
+          chosenPlayer.src = "images/questionmark.png";
+          winner.style.display = "none";
+          scoreComputer.textContent =
+            scoreComputer.textContent.slice(0, -1) + "0";
+          scorePlayer.textContent = scorePlayer.textContent.slice(0, -1) + "0";
+          document
+            .querySelectorAll("body >*:not(.winner)")
+            .forEach((e) => (e.style.filter = "blur(0px)"));
+        });
+      }, 200);
     } else if (scorePlayer.textContent.slice(-1) === "5") {
-      winner.textContent = "You win!";
+      setTimeout(() => {
+        document
+          .querySelectorAll("body >*:not(.winner)")
+          .forEach((e) => (e.style.filter = "blur(10px)"));
+        output.textContent = "You win!";
+        winner.style.display = "block";
+        chosenComputer.src = "images/questionmark.png";
+        chosenPlayer.src = "images/questionmark.png";
+        playAgain.addEventListener("click", (e) => {
+          winner.style.display = "none";
+          scorePlayer.textContent = scorePlayer.textContent.slice(0, -1) + "0";
+          scoreComputer.textContent =
+            scoreComputer.textContent.slice(0, -1) + "0";
+          document
+            .querySelectorAll("body >*:not(.winner)")
+            .forEach((e) => (e.style.filter = "blur(0px)"));
+        });
+      }, 200);
     }
   });
-  // console.log(rock);
 
-  // while(i < 5){
-  //     let playerChoice = prompt("Choose rock, paper or scissors");
-  //     playerChoice = playerChoice.toLowerCase();
-
-  //     if (playerChoice === 'rock' || playerChoice === 'scissors' || playerChoice === 'paper') {
-  //         const computerChoice = getComputerChoice();
-
-  //         console.log(`-------------\nComputer choice: ${computerChoice}\nPlayer choice: ${playerChoice}`);
-
-  //         const round = playRound(playerChoice.toLowerCase(), computerChoice);
-
-  //         if (round.includes('win')){
-  //             // console.log("You win");
-  //             console.log(round, '\n-------------');
-  //             playerScore+=1;
-  //             i++;
-  //         }
-  //         else if (round.includes('draw')){
-  //             console.log(round, '\n-------------');
-  //             i++;
-  //         }
-  //         else {
-  //             console.log(round, '\n-------------');
-  //             computerScore += 1;
-  //             i++;
-  //         }
-
-  //     }
-
-  // }
-  checkScore(playerScore, computerScore);
+  // checkScore(playerScore, computerScore);
 }
+
 function checkScore(player, computer) {
   if (player > computer) {
     console.log(`The final score is ${player}:${computer}. Player wins!`);
@@ -168,7 +254,6 @@ function checkScore(player, computer) {
     console.log(`The final score is ${player}:${computer}. It's a draw!`);
   }
 }
-
 game();
 
 // const playerChoice = ['rock', 'paper', 'scissors'];
